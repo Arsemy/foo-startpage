@@ -1,0 +1,42 @@
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+:root {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100vh;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+
+  border: solid black 3px;
+  width: 80%;
+}
+
+.image > img {
+  vertical-align: bottom;
+  height: 400px;
+}
+
+.text {
+  justify-self: center;
+
+  max-width: 80%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
