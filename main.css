@@ -20,7 +20,7 @@ body {
   min-height: 100vh;
 }
 
-.container {
+.card {
   display: grid;
   grid-template-columns: auto 1fr;
 
@@ -28,12 +28,12 @@ body {
   width: 80%;
 }
 
-.image > img {
+.card__image {
   vertical-align: bottom;
   height: 400px;
 }
 
-.text {
+.card__quote {
   justify-self: center;
 
   max-width: 80%;
