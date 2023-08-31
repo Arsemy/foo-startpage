@@ -6,6 +6,12 @@
 
 :root {
   box-sizing: border-box;
+
+  --bg-dark:  #16161e;
+  --bg:       #1a1b26;
+  --bg-hl:    #292e42;
+  --fg:       #c0caf5;
+  --green:    #9ece6a;
 }
 
 body {
@@ -18,14 +24,21 @@ body {
   justify-content: center;
 
   min-height: 100vh;
+
+  background-color: var(--bg);
+  overflow: hidden;
 }
 
 .card {
   display: grid;
   grid-template-columns: auto 1fr;
 
-  border: solid black 3px;
+  border: solid var(--bg-dark) 3px;
   width: 80%;
+  max-width: 1080px;
+  min-width: 0;
+
+  background-color: var(--bg-hl);
 }
 
 .card__image {
@@ -34,9 +47,34 @@ body {
 }
 
 .card__quote {
-  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
 
-  max-width: 80%;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding: 30px 20px;
+  height: 400px;
+}
+
+.card__text {
+  text-align: center;
+
+  font-size: 2rem;
+  line-height: 1.2;
+  color: var(--green);
+}
+.card__text::before {
+  content: '“';
+}
+.card__text::after {
+  content: '”';
+}
+
+.card__author {
+  align-self: end;
+
+  color: var(--fg);
+}
+.card__author::before {
+  content: '— '
 }
