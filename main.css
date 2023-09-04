@@ -63,18 +63,9 @@ body {
   line-height: 1.2;
   color: var(--green);
 }
-.card__text::before {
-  content: '“';
-}
-.card__text::after {
-  content: '”';
-}
 
 .card__author {
   align-self: end;
 
   color: var(--fg);
-}
-.card__author::before {
-  content: '— '
 }
