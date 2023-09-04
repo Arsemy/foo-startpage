@@ -1,12 +1,12 @@
+@import url('./styles/reset.css');
+
 *,
 ::before,
 ::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 :root {
-  box-sizing: border-box;
-
   --bg-dark:  #16161e;
   --bg:       #1a1b26;
   --bg-hl:    #292e42;
