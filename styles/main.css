@@ -14,10 +14,6 @@
   --green:    #9ece6a;
 }
 
-body {
-  margin: 0;
-}
-
 .wrapper {
   display: flex;
   align-items: center;
