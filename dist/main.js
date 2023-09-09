@@ -1,10 +1,10 @@
-import { getQuotation, addQuotes, addHyphen } from './quotation.js';
+import { fetchQuote, addQuoteMark, addHyphen } from './quote.js';
 (async (quotePromise) => {
     const quoteData = await quotePromise;
     const cardText = document.querySelector('.card__text');
     if (cardText === null)
         return;
-    const formatedContent = addQuotes(quoteData.content);
+    const formatedContent = addQuoteMark(quoteData.content);
     cardText.textContent = formatedContent;
     const cardAuthor = document.querySelector('.card__author');
     if (cardAuthor === null)
@@ -18,22 +18,22 @@ import { getQuotation, addQuotes, addHyphen } from './quotation.js';
     if (cardTextOverflowWidth === undefined)
         return;
     cardText.style.minWidth = cardTextOverflowWidth;
-})(getQuotation('/random'));
+})(fetchQuote('/random'));
 function rmPx(value) {
     return parseInt(value);
 }
 function getCardTextOverflowHeight() {
-    const cardQuotation = document.querySelector('.card__quotation');
+    const cardQuotation = document.querySelector('.card__quote');
     if (cardQuotation === null)
         return;
     const cardAuthor = document.querySelector('.card__author');
     if (cardAuthor === null)
         return;
     const authorStyles = getComputedStyle(cardAuthor);
-    const quotationStyles = getComputedStyle(cardQuotation);
-    const quotationContentAreaHeight = getContentAreaHeight(quotationStyles);
-    const textMaxHeight = quotationContentAreaHeight -
-        rmPx(quotationStyles.gap) -
+    const quoteStyles = getComputedStyle(cardQuotation);
+    const quoteContentAreaHeight = getContentAreaHeight(quoteStyles);
+    const textMaxHeight = quoteContentAreaHeight -
+        rmPx(quoteStyles.gap) -
         rmPx(authorStyles.height);
     return `${String(textMaxHeight)}px`;
 }

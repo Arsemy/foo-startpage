@@ -36,7 +36,7 @@
   height: 400px;
 }
 
-.card__quotation {
+.card__quote {
   display: flex;
   flex-direction: column;
   justify-content: center;

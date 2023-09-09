@@ -1,10 +1,10 @@
-export async function getQuotation(route: string): Promise<Quote> {
+export async function fetchQuote(route: string): Promise<Quote> {
   const response = await fetch(`https://api.quotable.io${route}`);
   return await response.json();
 }
 
 
-export function addQuotes(quotation: string) {
+export function addQuoteMark(quotation: string) {
   return `“${quotation}”`
 }
 
