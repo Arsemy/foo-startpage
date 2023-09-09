@@ -26,7 +26,7 @@
   border: solid var(--bg-dark) 3px;
   width: 80%;
   max-width: 1080px;
-  min-width: 0;
+  min-width: min-content;
 
   background-color: var(--bg-hl);
 }
@@ -47,15 +47,16 @@
 }
 
 .card__text {
-  text-align: center;
+  min-width: min-content;
 
   font-size: 2rem;
   line-height: 1.2;
+  text-align: center;
   color: var(--green);
 }
 
 .card__author {
-  align-self: end;
+  text-align: end;
 
   color: var(--fg);
 }
