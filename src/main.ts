@@ -5,12 +5,12 @@ import { fetchQuote, addQuoteMark, addHyphen } from './quote.js';
   const quotesData = await quotePromise;
   const quoteData = quotesData[0];
 
-  const cardText = document.querySelector<HTMLDivElement>('.card__text');
+  const cardText = document.querySelector<HTMLElement>('.card__text');
   if (cardText === null) return;
   const formatedContent = addQuoteMark(quoteData.content);
   cardText.textContent = formatedContent;
 
-  const cardAuthor = document.querySelector<HTMLDivElement>('.card__author');
+  const cardAuthor = document.querySelector<HTMLElement>('.card__author');
   if (cardAuthor === null) return;
   cardAuthor.textContent = addHyphen(quoteData.author);
 
@@ -33,12 +33,12 @@ function rmPx(value: string): number {
 
 
 function getCardTextOverflowHeight() {
-  const cardQuotation = document.querySelector<HTMLDivElement>(
+  const cardQuotation = document.querySelector<HTMLElement>(
     '.card__quote'
   );
   if (cardQuotation === null) return;
 
-  const cardAuthor = document.querySelector<HTMLDivElement>('.card__author');
+  const cardAuthor = document.querySelector<HTMLElement>('.card__author');
   if (cardAuthor === null) return;
 
   const authorStyles = getComputedStyle(cardAuthor);
