@@ -1,7 +1,9 @@
 import { fetchQuote, addQuoteMark, addHyphen } from './quote.js';
 
-(async (quotePromise: Promise<Quote>) => {
-  const quoteData = await quotePromise;
+
+(async (quotePromise: Promise<Quote[]>) => {
+  const quotesData = await quotePromise;
+  const quoteData = quotesData[0];
 
   const cardText = document.querySelector<HTMLDivElement>('.card__text');
   if (cardText === null) return;
@@ -22,7 +24,7 @@ import { fetchQuote, addQuoteMark, addHyphen } from './quote.js';
   if (cardTextOverflowWidth === undefined) return;
 
   cardText.style.minWidth = cardTextOverflowWidth;
-})(fetchQuote('/random'));
+})(fetchQuote('/quotes/random'));
 
 
 function rmPx(value: string): number {

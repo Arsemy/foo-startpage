@@ -1,6 +1,6 @@
-export async function fetchQuote(route: string): Promise<Quote> {
+export async function fetchQuote(route: string): Promise<Quote[]> {
   const response = await fetch(`https://api.quotable.io${route}`);
-  return await response.json();
+  return response.json();
 }
 
 
