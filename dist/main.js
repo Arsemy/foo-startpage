@@ -19,6 +19,10 @@ import { fetchQuote, addQuoteMark, addHyphen } from './quote.js';
     if (cardTextOverflowWidth === undefined)
         return;
     cardText.style.minWidth = cardTextOverflowWidth;
+    const cardAuthorLink = createAuthorLink('wikipedia', quoteData.author);
+    if (cardAuthorLink === undefined)
+        return;
+    cardAuthor.href = cardAuthorLink;
 })(fetchQuote('/quotes/random'));
 function rmPx(value) {
     return parseInt(value);
@@ -62,4 +66,12 @@ function getOverflowWidth(text, fontSize, overflowHeight) {
     const overflowWidth = element.style.width;
     element.remove();
     return overflowWidth;
+}
+function createAuthorLink(site, author) {
+    let link;
+    switch (site) {
+        case 'wikipedia':
+            link = `https://en.wikipedia.org/wiki/${author}`;
+    }
+    return link;
 }
