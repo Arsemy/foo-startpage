@@ -44,6 +44,8 @@
 
   padding: 30px 20px;
   height: 400px;
+
+  font-family: 'Manrope', sans-serif;
 }
 
 .card__text {
@@ -60,4 +62,5 @@
 
   color: var(--fg);
   text-decoration: none;
+  font-style: italic;
 }

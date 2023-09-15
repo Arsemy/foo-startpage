@@ -19,7 +19,7 @@ import { fetchQuote, addQuoteMark, addHyphen } from './quote.js';
 
   const cardTextStyles = getComputedStyle(cardText);
   const cardTextOverflowWidth = getOverflowWidth(
-    formatedContent, cardTextStyles.fontSize, cardTextOverflowHeight
+    formatedContent, cardTextStyles, cardTextOverflowHeight
     );
   if (cardTextOverflowWidth === undefined) return;
 
@@ -66,13 +66,14 @@ function getContentAreaHeight(styles: CSSStyleDeclaration): number {
 
 function getOverflowWidth(
   text: string,
-  fontSize: string,
+  styles: CSSStyleDeclaration,
   overflowHeight: string
   ) {
   const element = document.createElement('p');
 
   element.textContent = text;
-  element.style.fontSize = fontSize;
+  element.style.fontSize = styles.fontSize;
+  element.style.fontFamily= styles.fontFamily;
 
   element.style.position = 'fixed';
   element.style.width = 'max-content';
