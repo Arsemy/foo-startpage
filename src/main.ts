@@ -61,12 +61,12 @@ function getContentAreaHeight(styles: CSSStyleDeclaration): number {
   if (styles.boxSizing === 'content-box') return rmPx(styles.height);
 
   const {
-    height, paddingTop, paddingBottom, borderTop, borderBottom
+    height, paddingTop, paddingBottom, borderTopWidth, borderBottomWidth
   } = styles;
 
   return (
     rmPx(height) - rmPx(paddingTop) - rmPx(paddingBottom) -
-    rmPx(borderTop) - rmPx(borderBottom)
+    rmPx(borderTopWidth) - rmPx(borderBottomWidth)
   )
 }
 
