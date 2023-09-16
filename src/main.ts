@@ -80,7 +80,7 @@ function getOverflowWidth(
 
   element.textContent = text;
   element.style.fontSize = styles.fontSize;
-  element.style.fontFamily= styles.fontFamily;
+  element.style.fontFamily = styles.fontFamily;
 
   element.style.position = 'fixed';
   element.style.width = 'max-content';
