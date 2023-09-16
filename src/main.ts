@@ -92,7 +92,11 @@ function getOverflowWidth(
 
   const elementStyles = getComputedStyle(element);
   let elementMaxWidth = rmPx(elementStyles.width);
-  while (rmPx(elementStyles.height) < rmPx(overflowHeight)) {
+  while (
+    rmPx(elementStyles.height) < rmPx(overflowHeight) &&
+    elementMaxWidth > 0
+  )
+  {
     elementMaxWidth--;
     element.style.width = `${elementMaxWidth}px`;
   }
