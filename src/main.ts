@@ -37,16 +37,16 @@ function rmPx(value: string): number {
 
 
 function getCardTextOverflowHeight() {
-  const cardQuotation = document.querySelector<HTMLElement>(
+  const cardQuote = document.querySelector<HTMLElement>(
     '.card__quote'
   );
-  if (cardQuotation === null) return;
+  if (cardQuote === null) return;
 
   const cardAuthor = document.querySelector<HTMLElement>('.card__author');
   if (cardAuthor === null) return;
 
   const authorStyles = getComputedStyle(cardAuthor);
-  const quoteStyles = getComputedStyle(cardQuotation);
+  const quoteStyles = getComputedStyle(cardQuote);
   const quoteContentAreaHeight = getContentAreaHeight(quoteStyles);
   const textOverflowHeight =
     quoteContentAreaHeight -
