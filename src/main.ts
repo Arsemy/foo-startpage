@@ -48,12 +48,12 @@ function getCardTextOverflowHeight() {
   const authorStyles = getComputedStyle(cardAuthor);
   const quoteStyles = getComputedStyle(cardQuotation);
   const quoteContentAreaHeight = getContentAreaHeight(quoteStyles);
-  const textMaxHeight =
+  const textOverflowHeight =
     quoteContentAreaHeight -
     rmPx(quoteStyles.gap) -
     rmPx(authorStyles.height);
 
-  return `${String(textMaxHeight)}px`;
+  return `${String(textOverflowHeight)}px`;
 }
 
 
