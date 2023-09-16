@@ -32,7 +32,7 @@ import { fetchQuote, addQuoteMark, addHyphen } from './quote.js';
 
 
 function rmPx(value: string): number {
-  return parseInt(value);
+  return parseInt(value, 10);
 }
 
 
