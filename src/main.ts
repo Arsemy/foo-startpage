@@ -58,9 +58,16 @@ function getCardTextOverflowHeight() {
 
 
 function getContentAreaHeight(styles: CSSStyleDeclaration): number {
-  const { height, paddingTop, paddingBottom } = styles;
+  if (styles.boxSizing === 'content-box') return rmPx(styles.height);
 
-  return rmPx(height) - rmPx(paddingTop) - rmPx(paddingBottom);
+  const {
+    height, paddingTop, paddingBottom, borderTop, borderBottom
+  } = styles;
+
+  return (
+    rmPx(height) - rmPx(paddingTop) - rmPx(paddingBottom) -
+    rmPx(borderTop) - rmPx(borderBottom)
+  )
 }
 
 
