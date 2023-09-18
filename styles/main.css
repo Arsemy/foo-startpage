@@ -64,3 +64,23 @@
   text-decoration: none;
   font-style: italic;
 }
+
+.settings {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+}
+
+.settings__image {
+  height: 25px;
+
+  filter: invert(80%) sepia(10%) saturate(876%) hue-rotate(193deg) brightness(101%) contrast(92%);
+  transition: 0.3s;
+}
+.settings__image:hover {
+  transform: rotate(90deg);
+  transition: 0.3s;
+}
