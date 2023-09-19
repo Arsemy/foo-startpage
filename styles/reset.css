@@ -2,12 +2,21 @@
 ::before,
 ::after {
   box-sizing: border-box;
-
-  margin: 0;
-  padding: 0;
 }
 
-:where(button) {
-  border: none;
-  outline: none;
+* {
+  margin: 0;
+}
+
+:where(body) {
+  line-height: 1.5;
+}
+
+:where(img, picture, video, canvas, svg) {
+  display: block;
+  max-width: 100%;
+}
+
+:where(input, button, textarea, select) {
+  font: inherit;
 }
