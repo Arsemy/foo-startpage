@@ -1,0 +1,12 @@
+#!/bin/bash
+
+tagVersion=$(git describe --tags --abbrev=0 | cut -c 2-)
+packageVersion=$(grep -Po '"version": *\K"[^"]*"' package.json | cut -d '"' -f 2)
+manifestVersion=$(grep -Po '"version": *\K"[^"]*"' manifest.json | cut -d '"' -f 2)
+
+if [ "$tagVersion" == "$packageVersion" ] && [ "$tagVersion" == "$manifestVersion" ]; then
+  echo "Everything up-to-date"
+else
+  echo "Please, update package.json and manifest.json to match the latest git tag"
+  exit 1
+fi
