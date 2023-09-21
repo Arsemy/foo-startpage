@@ -1,0 +1,22 @@
+.settings-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  border: none;
+
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+
+  &__image {
+    height: 25px;
+
+    filter: invert(80%) sepia(10%) saturate(876%) hue-rotate(193deg) brightness(101%) contrast(92%);
+    transition: 0.3s;
+
+    &:hover {
+      transform: rotate(90deg);
+      transition: 0.3s;
+    }
+  }
+}
