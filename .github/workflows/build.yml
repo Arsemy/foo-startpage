@@ -23,5 +23,9 @@ jobs:
       - name: Compile TypeScript
         run: npm run build
 
+  version:
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Verify versioning
         run: .github/workflows/scripts/versioning
