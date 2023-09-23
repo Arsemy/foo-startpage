@@ -1,6 +1,3 @@
-import { fetchQuote, addQuoteMark, addHyphen } from './quote.js';
-
-
 (async (quotePromise: Promise<Quote[]>) => {
   const quotesData = await quotePromise;
   const quoteData = quotesData[0];
@@ -29,6 +26,22 @@ import { fetchQuote, addQuoteMark, addHyphen } from './quote.js';
   if (cardAuthorLink === undefined) return;
   cardAuthor.href = cardAuthorLink;
 })(fetchQuote('/quotes/random'));
+
+
+async function fetchQuote(route: string): Promise<Quote[]> {
+  const response = await fetch(`https://api.quotable.io${route}`);
+  return response.json();
+}
+
+
+function addQuoteMark(quotation: string) {
+  return `“${quotation}”`
+}
+
+
+function addHyphen(author: string) {
+  return `— ${author}`
+}
 
 
 function rmPx(value: string): number {
