@@ -1,1 +1,1 @@
-import './components/card/card'
+import './components/card/card';

@@ -7,7 +7,8 @@
   const formatedContent = addQuoteMark(quoteData.content);
   cardText.textContent = formatedContent;
 
-  const cardAuthor = document.querySelector<HTMLAnchorElement>('.c-card__author');
+  const cardAuthor =
+    document.querySelector<HTMLAnchorElement>('.c-card__author');
   if (cardAuthor === null) return;
   cardAuthor.textContent = addHyphen(quoteData.author);
 
@@ -16,8 +17,10 @@
 
   const cardTextStyles = getComputedStyle(cardText);
   const cardTextOverflowWidth = getOverflowWidth(
-    formatedContent, cardTextStyles, cardTextOverflowHeight
-    );
+    formatedContent,
+    cardTextStyles,
+    cardTextOverflowHeight,
+  );
   if (cardTextOverflowWidth === undefined) return;
 
   cardText.style.minWidth = cardTextOverflowWidth;
@@ -27,32 +30,25 @@
   cardAuthor.href = cardAuthorLink;
 })(fetchQuote('/quotes/random'));
 
-
 async function fetchQuote(route: string): Promise<Quote[]> {
   const response = await fetch(`https://api.quotable.io${route}`);
   return response.json();
 }
 
-
 function addQuoteMark(quotation: string) {
-  return `“${quotation}”`
+  return `“${quotation}”`;
 }
-
 
 function addHyphen(author: string) {
-  return `— ${author}`
+  return `— ${author}`;
 }
-
 
 function rmPx(value: string): number {
   return parseInt(value, 10);
 }
 
-
 function getCardTextOverflowHeight() {
-  const cardQuote = document.querySelector<HTMLElement>(
-    '.c-card__quote'
-  );
+  const cardQuote = document.querySelector<HTMLElement>('.c-card__quote');
   if (cardQuote === null) return;
 
   const cardAuthor = document.querySelector<HTMLElement>('.c-card__author');
@@ -62,33 +58,36 @@ function getCardTextOverflowHeight() {
   const quoteStyles = getComputedStyle(cardQuote);
   const quoteContentAreaHeight = getContentAreaHeight(quoteStyles);
   const textOverflowHeight =
-    quoteContentAreaHeight -
-    rmPx(quoteStyles.gap) -
-    rmPx(authorStyles.height);
+    quoteContentAreaHeight - rmPx(quoteStyles.gap) - rmPx(authorStyles.height);
 
   return `${String(textOverflowHeight)}px`;
 }
-
 
 function getContentAreaHeight(styles: CSSStyleDeclaration): number {
   if (styles.boxSizing === 'content-box') return rmPx(styles.height);
 
   const {
-    height, paddingTop, paddingBottom, borderTopWidth, borderBottomWidth
+    height,
+    paddingTop,
+    paddingBottom,
+    borderTopWidth,
+    borderBottomWidth,
   } = styles;
 
   return (
-    rmPx(height) - rmPx(paddingTop) - rmPx(paddingBottom) -
-    rmPx(borderTopWidth) - rmPx(borderBottomWidth)
-  )
+    rmPx(height) -
+    rmPx(paddingTop) -
+    rmPx(paddingBottom) -
+    rmPx(borderTopWidth) -
+    rmPx(borderBottomWidth)
+  );
 }
-
 
 function getOverflowWidth(
   text: string,
   styles: CSSStyleDeclaration,
-  overflowHeight: string
-  ) {
+  overflowHeight: string,
+) {
   const element = document.createElement('p');
 
   element.textContent = text;
@@ -108,8 +107,7 @@ function getOverflowWidth(
   while (
     rmPx(elementStyles.height) < rmPx(overflowHeight) &&
     elementMaxWidth > 0
-  )
-  {
+  ) {
     elementMaxWidth--;
     element.style.width = `${elementMaxWidth}px`;
   }
@@ -121,12 +119,11 @@ function getOverflowWidth(
   return overflowWidth;
 }
 
-
 function createAuthorLink(site: string, author: string) {
   let link;
   switch (site) {
     case 'wikipedia':
-      link = `https://en.wikipedia.org/wiki/${author}`
+      link = `https://en.wikipedia.org/wiki/${author}`;
   }
   return link;
 }
