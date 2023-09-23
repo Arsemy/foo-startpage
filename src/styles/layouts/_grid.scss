@@ -1,4 +1,4 @@
-.l-wrapper {
+.l-grid {
   display: grid;
 
   min-height: 100vh;
@@ -9,5 +9,11 @@
   &__card {
     align-self: center;
     justify-self: center;
+  }
+
+  &__settings-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
   }
 }
