@@ -29,3 +29,10 @@ jobs:
     steps:
       - name: Verify versioning
         run: .github/workflows/scripts/versioning
+
+  formatting:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Prettify
+        run: npx pretty --check .
