@@ -40,5 +40,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+
+      - name: Install Prettier
+        run: npm i prettier --no-save
+
       - name: Prettify
-        run: npx pretty --check .
+        run: npx prettier --check .
