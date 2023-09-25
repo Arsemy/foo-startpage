@@ -14,7 +14,6 @@
 
 :where(img, picture, video, canvas, svg) {
   display: block;
-  max-width: 100%;
 }
 
 :where(input, button, textarea, select) {
