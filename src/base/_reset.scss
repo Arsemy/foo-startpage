@@ -13,7 +13,7 @@
 }
 
 :where(img, picture, video, canvas, svg) {
-  display: block;
+  vertical-align: bottom;
 }
 
 :where(input, button, textarea, select) {
