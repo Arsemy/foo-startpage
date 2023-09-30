@@ -8,14 +8,21 @@
   margin: 0;
 }
 
-:where(body) {
+body {
   line-height: 1.5;
 }
 
-:where(img, picture, video, canvas, svg) {
+img,
+picture,
+video,
+canvas,
+svg {
   vertical-align: bottom;
 }
 
-:where(input, button, textarea, select) {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
