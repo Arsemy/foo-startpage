@@ -7,6 +7,7 @@
 }
 
 .c-card {
+  box-sizing: content-box;
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: 100%;
@@ -19,7 +20,7 @@
   background-color: var(--bg-hl);
 
   &__image {
-    height: 100%;
+    height: inherit;
   }
 
   &__quote {
